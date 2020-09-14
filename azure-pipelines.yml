@@ -10,7 +10,7 @@ steps:
       set -e
 
       # Initialize Terraform.
-      terraform init -input=false
+      terraform init -input=false -backend-config="backend.tfvars"
       # Apply the Terraform plan.
       terraform apply -input=false -var-file="values.tfvars" -auto-approve
 
