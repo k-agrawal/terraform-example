@@ -6,17 +6,18 @@ pool:
 
 steps:
   - script: |
-        # Exit when any command returns a failure status.
-        set -e
+      # Exit when any command returns a failure status.
+      set -e
 
-        # Initialize Terraform.
-        terraform init -input=false
-        # Apply the Terraform plan.
-        terraform apply -input=false -var-file="values.tfvars" -auto-approve
+      # Initialize Terraform.
+      terraform init -input=false
+      # Apply the Terraform plan.
+      terraform apply -input=false -var-file="values.tfvars" -auto-approve
 
-      displayName: 'Run Terraform'
-      env:
-        ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-        ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-        ARM_TENANT_ID: $(ARM_TENANT_ID)
-        ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+    name: 'RunTerraform'
+    displayName: 'Run Terraform'
+    env:
+      ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+      ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+      ARM_TENANT_ID: $(ARM_TENANT_ID)
+      ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
