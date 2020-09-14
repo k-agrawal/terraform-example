@@ -1,6 +1,9 @@
 trigger:
 - '*'
 
+variables:
+  buildConfiguration: 'terraform-ex'
+
 pool:
   vmImage: 'ubuntu-18.04'
 
