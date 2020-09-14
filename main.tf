@@ -1,5 +1,12 @@
 provider "azurerm" {
   features {}
+  
+  backend "azurerm" {
+  resource_group_name  = "tf-storage-rg"
+  storage_account_name = "tfsa4962"
+  container_name       = "tfstate"
+  key                  = "terraform.tfstate"
+  }
 }
 
 resource "azurerm_resource_group" "main" {
