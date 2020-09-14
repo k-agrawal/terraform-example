@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 variables:
-  buildConfiguration: 'Terraform-ex-variables'
+- group: 'Terraform-ex-variables'
 
 pool:
   vmImage: 'ubuntu-18.04'
