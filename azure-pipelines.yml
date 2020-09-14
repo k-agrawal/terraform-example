@@ -14,7 +14,6 @@ steps:
         # Apply the Terraform plan.
         terraform apply -input=false -var-file="values.tfvars" -auto-approve
 
-      name: 'RunTerraform'
       displayName: 'Run Terraform'
       env:
         ARM_CLIENT_ID: $(ARM_CLIENT_ID)
