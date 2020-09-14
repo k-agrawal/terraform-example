@@ -1,3 +1,3 @@
 prefix   = "kanishk120"
 
-location = "kanishk120"
+location = "eastus"
