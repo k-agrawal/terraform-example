@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 variables:
-- group: 'Terraform-ex-variables'
+- group: 'tf-ex-variables'
 
 pool:
   vmImage: 'ubuntu-18.04'
