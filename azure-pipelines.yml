@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 variables:
-- group: 'tf-ex-variables'
+- group: 'tf-example-variables'
 
 pool:
   vmImage: 'ubuntu-18.04'
