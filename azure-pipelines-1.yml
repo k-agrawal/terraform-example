@@ -7,7 +7,7 @@ trigger:
 - master
 
 variables:
-  tf-ex-variables
+- group: 'tf-example-variables'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -16,5 +16,16 @@ steps:
 - download: current
   artifact: Tfstate
   patterns: '**/terraform.tfstate'
-- script: terraform destroy
-  
+- script: |
+    #Initializing Terraform
+    terraform init
+    #Destroying infra
+    terraform destroy
+    
+  name: 'RunTerraform'
+  displayName: 'Run Terraform'
+  env:
+    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+    ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+    ARM_TENANT_ID: $(ARM_TENANT_ID)
+    ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
