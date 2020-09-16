@@ -14,7 +14,7 @@ pool:
 
 steps:
 - download: current
-  artifact: Tfstate
+  artifact: StateFile
   patterns: '**/terraform.tfstate'
 - script: |
     #Initializing Terraform
