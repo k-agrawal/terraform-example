@@ -4,6 +4,7 @@ terraform {
     storage_account_name = "tfex120"
     container_name       = "tfexc120"
     key                  = "terraform.tfstate"
+    access_key           = "J6yuP8sxnLW8BhqN3maTFFBq3nt9hMGVNQeBMukWnOB1WZCu1JMdk0AI/MvQIpMfxMOO4TWHm6RKZWOTEOyKPQ=="
   }
 }
 provider "azurerm" {
