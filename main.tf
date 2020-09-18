@@ -1,6 +1,3 @@
-provider "azurerm" {
-  features {}  
-}
 terraform {
   backend "azurerm" {
     resource_group_name  = "tf-example"
@@ -8,6 +5,9 @@ terraform {
     container_name       = "tfexc120"
     key                  = "terraform.tfstate"
   }
+}
+provider "azurerm" {
+  features {}  
 }
 resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
