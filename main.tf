@@ -10,12 +10,12 @@ terraform {
   }
 }
 resource "azurerm_resource_group" "main" {
-  name     = "kanishk124-resources"
-  location = "eastus"
+  name     = "${var.prefix}-resources"
+  location = "${var.location}"
 }
 
 resource "azurerm_virtual_network" "main" {
-  name                = "kanishk124-network"
+  name                = "${var.prefix}-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
@@ -29,14 +29,14 @@ resource "azurerm_subnet" "internal" {
 }
 
 resource "azurerm_public_ip" "main" {
-  name                = "kanishk124-pip"
+  name                = "${var.prefix}-pip"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   allocation_method   = "Static"
 }
 
 resource "azurerm_network_interface" "main" {
-  name                = "kanishk124-nic"
+  name                = "${var.prefix}-nic"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
 
@@ -49,7 +49,7 @@ resource "azurerm_network_interface" "main" {
 }
 
 resource "azurerm_linux_virtual_machine" "main" {
-  name                            = "kanishk124-vm"
+  name                            = "${var.prefix}-vm"
   resource_group_name             = azurerm_resource_group.main.name
   location                        = azurerm_resource_group.main.location
   size                            = "Standard_F2"
