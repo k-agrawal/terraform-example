@@ -1,3 +1,3 @@
-prefix   = "kanishk124"
+prefix   = "demo-IAAC-CICD"
 
 location = "eastus"
