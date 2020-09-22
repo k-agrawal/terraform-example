@@ -1,3 +1,3 @@
-prefix   = "demo-IAAC-CICD-v1"
+prefix   = "demo-IAAC-CICD"
 
 location = "eastus"
