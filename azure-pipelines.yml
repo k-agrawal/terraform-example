@@ -11,6 +11,10 @@ steps:
   - script: |
       # Exit when any command returns a failure status.
       set -e
+      export ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+      export ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+      export ARM_TENANT_ID: $(ARM_TENANT_ID)
+      export ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
 
       # Initialize Terraform.
       terraform init -input=false
@@ -19,10 +23,5 @@ steps:
 
     name: 'RunTerraform'
     displayName: 'Run Terraform'
-    env:
-      ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-      ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-      ARM_TENANT_ID: $(ARM_TENANT_ID)
-      ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
   - publish: $(System.DefaultWorkingDirectory)/terraform.tfstate
     artifact: StateFile
